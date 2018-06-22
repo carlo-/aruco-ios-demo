@@ -9,11 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface ArucoDetector: NSObject
-@property float markerSize;
--(UIImage *_Nonnull) detect:(UIImage *_Nonnull)image;
-@end
-
 @interface ArucoGenerator: NSObject
 @property BOOL enclosingCorners;
 @property BOOL waterMark;
@@ -31,6 +26,12 @@
 @property float poseRX;
 @property float poseRY;
 @property float poseRZ;
+@end
+
+@interface ArucoDetector: NSObject
+@property float markerSize;
+-(NSArray<ArucoMarker *> *_Nonnull) detect:(UIImage *_Nonnull)image;
+-(UIImage *_Nonnull) drawMarkers:(UIImage *_Nonnull)image;
 @end
 
 @protocol ArucoTrackerDelegate;

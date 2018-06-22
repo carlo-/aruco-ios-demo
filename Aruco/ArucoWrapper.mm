@@ -92,6 +92,8 @@ std::string NSStringToStdString(NSString *nsString);
     } else {
         [NSException raise:@"DeviceNotSupported" format:@"Device does not support one or more required features"];
     }
+
+    self.setupDone = false;
 }
 
 -(void) captureOutput:(AVCaptureOutput *)output didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
@@ -190,17 +192,31 @@ std::string NSStringToStdString(NSString *nsString);
     return self;
 }
 
--(UIImage *) detect:(UIImage *)image {
+-(NSArray<ArucoMarker *> *) detect:(UIImage *)image {
 
     cv::Mat colorImage, grayImage;
     UIImageToMat(image, colorImage);
     cvtColor(colorImage, grayImage, cv::COLOR_BGR2GRAY);
+    std::vector<aruco::Marker> markers = self.detector->detect(grayImage, *self.camParams, self.markerSize);
+    NSMutableArray *result = [NSMutableArray new];
 
+    for (auto& m : markers) {
+        ArucoMarker *markerObj = [[ArucoMarker alloc] initWithCMarker:m];
+        if (markerObj != nil) [result addObject:markerObj];
+    }
+
+    return result;
+}
+
+-(UIImage *) drawMarkers:(UIImage *)image {
+
+    cv::Mat colorImage, grayImage;
+    UIImageToMat(image, colorImage);
+    cvtColor(colorImage, grayImage, cv::COLOR_BGR2GRAY);
     std::vector<aruco::Marker> markers = self.detector->detect(grayImage, *self.camParams, self.markerSize);
 
-    for (int i = 0; i < markers.size(); ++i) {
-        // cout << markers[i] << endl;
-        markers[i].draw(colorImage, cv::Scalar(0,0,255), 2);
+    for (auto& m : markers) {
+        m.draw(colorImage, cv::Scalar(0,0,255), 2);
     }
 
     return MatToUIImage(colorImage);
@@ -249,25 +265,3 @@ std::string NSStringToStdString(NSString *nsString) {
     std::string stdString([nsString UTF8String]);
     return stdString;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
