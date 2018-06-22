@@ -10,8 +10,8 @@ In order to setup the project, follow these steps:
 * Download the Aruco library (v3.0.X) from [here](https://sourceforge.net/projects/aruco/files/?source=navbar).
 * Copy the folders `src` and `3rdparty` into the `Aruco` folder of the project.
 * From the project root, run `chmod -R 755 ./Aruco/3rdparty/eigen3/Eigen`.
-* Download OpenCV 3.4.X from [here](https://opencv.org/releases.html).
-* Make an empty folder `Frameworks` in the project root and copy `opencv2.framework` into it.
+* Download OpenCV 3.4.X (iOS pack) from [here](https://opencv.org/releases.html).
+* Make a new folder `Frameworks` in the project root and copy `opencv2.framework` into it.
 * Install the remaining dependencies by running `pod install`.
 
 If everything went well, your project should now look like this (omitting less relevant files):
