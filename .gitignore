@@ -1,0 +1,35 @@
+## Build generated
+build/
+DerivedData/
+
+## Aruco
+Aruco/src/
+Aruco/3rdparty/
+
+## CocoaPods
+Pods/
+Podfile.lock
+
+## Third-party libraries
+Frameworks/
+
+## JetBrains
+.idea/
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+*.xcuserdatad
+*.xcuserstate

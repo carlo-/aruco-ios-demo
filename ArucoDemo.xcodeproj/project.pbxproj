@@ -1,0 +1,570 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2359902720DA69D800BBDDCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359902620DA69D800BBDDCE /* AppDelegate.swift */; };
+		2359902920DA69D800BBDDCE /* TrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359902820DA69D800BBDDCE /* TrackViewController.swift */; };
+		2359902C20DA69D800BBDDCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2359902A20DA69D800BBDDCE /* Main.storyboard */; };
+		2359902E20DA69D900BBDDCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2359902D20DA69D900BBDDCE /* Assets.xcassets */; };
+		2359903120DA69D900BBDDCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2359902F20DA69D900BBDDCE /* LaunchScreen.storyboard */; };
+		2359903D20DA6A5000BBDDCE /* ArucoWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2359903C20DA6A5000BBDDCE /* ArucoWrapper.mm */; };
+		2359905C20DA6C5200BBDDCE /* cameraparameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2359904220DA6C4F00BBDDCE /* cameraparameters.cpp */; };
+		2359905D20DA6C5200BBDDCE /* debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2359904520DA6C4F00BBDDCE /* debug.cpp */; };
+		2359905F20DA6C5200BBDDCE /* cvdrawingutils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2359904B20DA6C5000BBDDCE /* cvdrawingutils.cpp */; };
+		2359906020DA6C5200BBDDCE /* posetracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2359904C20DA6C5000BBDDCE /* posetracker.cpp */; };
+		2359906120DA6C5200BBDDCE /* marker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2359904D20DA6C5000BBDDCE /* marker.cpp */; };
+		2359906220DA6C5200BBDDCE /* markermap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2359904F20DA6C5000BBDDCE /* markermap.cpp */; };
+		2359906320DA6C5200BBDDCE /* dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2359905020DA6C5000BBDDCE /* dictionary.cpp */; };
+		2359906420DA6C5200BBDDCE /* markerlabeler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2359905220DA6C5000BBDDCE /* markerlabeler.cpp */; };
+		2359906520DA6C5200BBDDCE /* markerdetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2359905320DA6C5100BBDDCE /* markerdetector.cpp */; };
+		2359906620DA6C5200BBDDCE /* ippe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2359905720DA6C5100BBDDCE /* ippe.cpp */; };
+		2359906820DA6C9B00BBDDCE /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2359906720DA6C9B00BBDDCE /* opencv2.framework */; };
+		2359907020DA878C00BBDDCE /* dictionary_based.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2359906D20DA878B00BBDDCE /* dictionary_based.cpp */; };
+		2359907120DA878C00BBDDCE /* svmmarkers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2359906E20DA878B00BBDDCE /* svmmarkers.cpp */; };
+		2359907720DD448800BBDDCE /* GenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359907620DD448800BBDDCE /* GenerateViewController.swift */; };
+		2359907C20DD625600BBDDCE /* example_camera_parameters.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2359907B20DD625600BBDDCE /* example_camera_parameters.yml */; };
+		97F573A2D9DCF2BF7BEA8071 /* Pods_ArucoDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30D1C0C5F01FEC9B5AF3E438 /* Pods_ArucoDemo.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2359902320DA69D800BBDDCE /* ArucoDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArucoDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2359902620DA69D800BBDDCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2359902820DA69D800BBDDCE /* TrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewController.swift; sourceTree = "<group>"; };
+		2359902B20DA69D800BBDDCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2359902D20DA69D900BBDDCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2359903020DA69D900BBDDCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2359903220DA69D900BBDDCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2359903A20DA6A5000BBDDCE /* ArucoDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ArucoDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		2359903B20DA6A5000BBDDCE /* ArucoWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArucoWrapper.h; sourceTree = "<group>"; };
+		2359903C20DA6A5000BBDDCE /* ArucoWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ArucoWrapper.mm; sourceTree = "<group>"; };
+		2359904220DA6C4F00BBDDCE /* cameraparameters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cameraparameters.cpp; sourceTree = "<group>"; };
+		2359904320DA6C4F00BBDDCE /* levmarq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = levmarq.h; sourceTree = "<group>"; };
+		2359904420DA6C4F00BBDDCE /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
+		2359904520DA6C4F00BBDDCE /* debug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = debug.cpp; sourceTree = "<group>"; };
+		2359904720DA6C4F00BBDDCE /* markermap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = markermap.h; sourceTree = "<group>"; };
+		2359904820DA6C4F00BBDDCE /* timers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timers.h; sourceTree = "<group>"; };
+		2359904920DA6C5000BBDDCE /* aruco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aruco.h; sourceTree = "<group>"; };
+		2359904A20DA6C5000BBDDCE /* fast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fast.h; sourceTree = "<group>"; };
+		2359904B20DA6C5000BBDDCE /* cvdrawingutils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cvdrawingutils.cpp; sourceTree = "<group>"; };
+		2359904C20DA6C5000BBDDCE /* posetracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = posetracker.cpp; sourceTree = "<group>"; };
+		2359904D20DA6C5000BBDDCE /* marker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = marker.cpp; sourceTree = "<group>"; };
+		2359904E20DA6C5000BBDDCE /* ippe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ippe.h; sourceTree = "<group>"; };
+		2359904F20DA6C5000BBDDCE /* markermap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = markermap.cpp; sourceTree = "<group>"; };
+		2359905020DA6C5000BBDDCE /* dictionary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dictionary.cpp; sourceTree = "<group>"; };
+		2359905120DA6C5000BBDDCE /* cvdrawingutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvdrawingutils.h; sourceTree = "<group>"; };
+		2359905220DA6C5000BBDDCE /* markerlabeler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = markerlabeler.cpp; sourceTree = "<group>"; };
+		2359905320DA6C5100BBDDCE /* markerdetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = markerdetector.cpp; sourceTree = "<group>"; };
+		2359905420DA6C5100BBDDCE /* markerlabeler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = markerlabeler.h; sourceTree = "<group>"; };
+		2359905520DA6C5100BBDDCE /* posetracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = posetracker.h; sourceTree = "<group>"; };
+		2359905620DA6C5100BBDDCE /* markerdetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = markerdetector.h; sourceTree = "<group>"; };
+		2359905720DA6C5100BBDDCE /* ippe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ippe.cpp; sourceTree = "<group>"; };
+		2359905820DA6C5100BBDDCE /* dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dictionary.h; sourceTree = "<group>"; };
+		2359905920DA6C5100BBDDCE /* cameraparameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameraparameters.h; sourceTree = "<group>"; };
+		2359905A20DA6C5100BBDDCE /* aruco_export.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aruco_export.h; sourceTree = "<group>"; };
+		2359905B20DA6C5200BBDDCE /* marker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = marker.h; sourceTree = "<group>"; };
+		2359906720DA6C9B00BBDDCE /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		2359906C20DA878B00BBDDCE /* svmmarkers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = svmmarkers.h; sourceTree = "<group>"; };
+		2359906D20DA878B00BBDDCE /* dictionary_based.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dictionary_based.cpp; sourceTree = "<group>"; };
+		2359906E20DA878B00BBDDCE /* svmmarkers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = svmmarkers.cpp; sourceTree = "<group>"; };
+		2359906F20DA878C00BBDDCE /* dictionary_based.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dictionary_based.h; sourceTree = "<group>"; };
+		2359907620DD448800BBDDCE /* GenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewController.swift; sourceTree = "<group>"; };
+		2359907B20DD625600BBDDCE /* example_camera_parameters.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example_camera_parameters.yml; sourceTree = "<group>"; };
+		2F3CDC773C2167C9D11D7462 /* Pods-ArucoDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArucoDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArucoDemo/Pods-ArucoDemo.release.xcconfig"; sourceTree = "<group>"; };
+		30D1C0C5F01FEC9B5AF3E438 /* Pods_ArucoDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArucoDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F121A706D926BB501C0408B6 /* Pods-ArucoDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArucoDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArucoDemo/Pods-ArucoDemo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2359902020DA69D800BBDDCE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2359906820DA6C9B00BBDDCE /* opencv2.framework in Frameworks */,
+				97F573A2D9DCF2BF7BEA8071 /* Pods_ArucoDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2359901A20DA69D800BBDDCE = {
+			isa = PBXGroup;
+			children = (
+				2359902520DA69D800BBDDCE /* ArucoDemo */,
+				2359903920DA6A1000BBDDCE /* Aruco */,
+				2359903820DA69F500BBDDCE /* Frameworks */,
+				2359902420DA69D800BBDDCE /* Products */,
+				26940232B40AFC4E1EA7DC36 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		2359902420DA69D800BBDDCE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2359902320DA69D800BBDDCE /* ArucoDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2359902520DA69D800BBDDCE /* ArucoDemo */ = {
+			isa = PBXGroup;
+			children = (
+				2359902620DA69D800BBDDCE /* AppDelegate.swift */,
+				2359902820DA69D800BBDDCE /* TrackViewController.swift */,
+				2359907620DD448800BBDDCE /* GenerateViewController.swift */,
+				2359902A20DA69D800BBDDCE /* Main.storyboard */,
+				2359907A20DD5DFB00BBDDCE /* Misc */,
+			);
+			path = ArucoDemo;
+			sourceTree = "<group>";
+		};
+		2359903820DA69F500BBDDCE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2359906720DA6C9B00BBDDCE /* opencv2.framework */,
+				30D1C0C5F01FEC9B5AF3E438 /* Pods_ArucoDemo.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		2359903920DA6A1000BBDDCE /* Aruco */ = {
+			isa = PBXGroup;
+			children = (
+				2359903E20DA6B0700BBDDCE /* src */,
+				2359903B20DA6A5000BBDDCE /* ArucoWrapper.h */,
+				2359903C20DA6A5000BBDDCE /* ArucoWrapper.mm */,
+			);
+			path = Aruco;
+			sourceTree = "<group>";
+		};
+		2359903E20DA6B0700BBDDCE /* src */ = {
+			isa = PBXGroup;
+			children = (
+				2359906B20DA877B00BBDDCE /* markerlabelers */,
+				2359905A20DA6C5100BBDDCE /* aruco_export.h */,
+				2359904920DA6C5000BBDDCE /* aruco.h */,
+				2359904220DA6C4F00BBDDCE /* cameraparameters.cpp */,
+				2359905920DA6C5100BBDDCE /* cameraparameters.h */,
+				2359904B20DA6C5000BBDDCE /* cvdrawingutils.cpp */,
+				2359905120DA6C5000BBDDCE /* cvdrawingutils.h */,
+				2359904520DA6C4F00BBDDCE /* debug.cpp */,
+				2359904420DA6C4F00BBDDCE /* debug.h */,
+				2359905020DA6C5000BBDDCE /* dictionary.cpp */,
+				2359905820DA6C5100BBDDCE /* dictionary.h */,
+				2359904A20DA6C5000BBDDCE /* fast.h */,
+				2359905720DA6C5100BBDDCE /* ippe.cpp */,
+				2359904E20DA6C5000BBDDCE /* ippe.h */,
+				2359904320DA6C4F00BBDDCE /* levmarq.h */,
+				2359904D20DA6C5000BBDDCE /* marker.cpp */,
+				2359905B20DA6C5200BBDDCE /* marker.h */,
+				2359905320DA6C5100BBDDCE /* markerdetector.cpp */,
+				2359905620DA6C5100BBDDCE /* markerdetector.h */,
+				2359905220DA6C5000BBDDCE /* markerlabeler.cpp */,
+				2359905420DA6C5100BBDDCE /* markerlabeler.h */,
+				2359904F20DA6C5000BBDDCE /* markermap.cpp */,
+				2359904720DA6C4F00BBDDCE /* markermap.h */,
+				2359904C20DA6C5000BBDDCE /* posetracker.cpp */,
+				2359905520DA6C5100BBDDCE /* posetracker.h */,
+				2359904820DA6C4F00BBDDCE /* timers.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		2359906B20DA877B00BBDDCE /* markerlabelers */ = {
+			isa = PBXGroup;
+			children = (
+				2359906D20DA878B00BBDDCE /* dictionary_based.cpp */,
+				2359906F20DA878C00BBDDCE /* dictionary_based.h */,
+				2359906E20DA878B00BBDDCE /* svmmarkers.cpp */,
+				2359906C20DA878B00BBDDCE /* svmmarkers.h */,
+			);
+			path = markerlabelers;
+			sourceTree = "<group>";
+		};
+		2359907A20DD5DFB00BBDDCE /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				2359907B20DD625600BBDDCE /* example_camera_parameters.yml */,
+				2359903A20DA6A5000BBDDCE /* ArucoDemo-Bridging-Header.h */,
+				2359902D20DA69D900BBDDCE /* Assets.xcassets */,
+				2359902F20DA69D900BBDDCE /* LaunchScreen.storyboard */,
+				2359903220DA69D900BBDDCE /* Info.plist */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		26940232B40AFC4E1EA7DC36 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F121A706D926BB501C0408B6 /* Pods-ArucoDemo.debug.xcconfig */,
+				2F3CDC773C2167C9D11D7462 /* Pods-ArucoDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2359902220DA69D800BBDDCE /* ArucoDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2359903520DA69D900BBDDCE /* Build configuration list for PBXNativeTarget "ArucoDemo" */;
+			buildPhases = (
+				8A1C685CFFB44CF0325B0061 /* [CP] Check Pods Manifest.lock */,
+				2359901F20DA69D800BBDDCE /* Sources */,
+				2359902020DA69D800BBDDCE /* Frameworks */,
+				2359902120DA69D800BBDDCE /* Resources */,
+				3259839159A46AEBEA6046AE /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ArucoDemo;
+			productName = ArucoDemo;
+			productReference = 2359902320DA69D800BBDDCE /* ArucoDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2359901B20DA69D800BBDDCE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Carlo Rapisarda";
+				TargetAttributes = {
+					2359902220DA69D800BBDDCE = {
+						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 0930;
+					};
+				};
+			};
+			buildConfigurationList = 2359901E20DA69D800BBDDCE /* Build configuration list for PBXProject "ArucoDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2359901A20DA69D800BBDDCE;
+			productRefGroup = 2359902420DA69D800BBDDCE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2359902220DA69D800BBDDCE /* ArucoDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2359902120DA69D800BBDDCE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2359907C20DD625600BBDDCE /* example_camera_parameters.yml in Resources */,
+				2359903120DA69D900BBDDCE /* LaunchScreen.storyboard in Resources */,
+				2359902E20DA69D900BBDDCE /* Assets.xcassets in Resources */,
+				2359902C20DA69D800BBDDCE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3259839159A46AEBEA6046AE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ArucoDemo/Pods-ArucoDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/UIScreenExtension/UIScreenExtension.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIScreenExtension.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArucoDemo/Pods-ArucoDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A1C685CFFB44CF0325B0061 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ArucoDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2359901F20DA69D800BBDDCE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2359903D20DA6A5000BBDDCE /* ArucoWrapper.mm in Sources */,
+				2359907720DD448800BBDDCE /* GenerateViewController.swift in Sources */,
+				2359905D20DA6C5200BBDDCE /* debug.cpp in Sources */,
+				2359906520DA6C5200BBDDCE /* markerdetector.cpp in Sources */,
+				2359907020DA878C00BBDDCE /* dictionary_based.cpp in Sources */,
+				2359905C20DA6C5200BBDDCE /* cameraparameters.cpp in Sources */,
+				2359906020DA6C5200BBDDCE /* posetracker.cpp in Sources */,
+				2359902920DA69D800BBDDCE /* TrackViewController.swift in Sources */,
+				2359906620DA6C5200BBDDCE /* ippe.cpp in Sources */,
+				2359906220DA6C5200BBDDCE /* markermap.cpp in Sources */,
+				2359907120DA878C00BBDDCE /* svmmarkers.cpp in Sources */,
+				2359906320DA6C5200BBDDCE /* dictionary.cpp in Sources */,
+				2359902720DA69D800BBDDCE /* AppDelegate.swift in Sources */,
+				2359905F20DA6C5200BBDDCE /* cvdrawingutils.cpp in Sources */,
+				2359906120DA6C5200BBDDCE /* marker.cpp in Sources */,
+				2359906420DA6C5200BBDDCE /* markerlabeler.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2359902A20DA69D800BBDDCE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2359902B20DA69D800BBDDCE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2359902F20DA69D900BBDDCE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2359903020DA69D900BBDDCE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2359903320DA69D900BBDDCE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2359903420DA69D900BBDDCE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2359903620DA69D900BBDDCE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F121A706D926BB501C0408B6 /* Pods-ArucoDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_MODULES_AUTOLINK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57W7KG4A63;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Aruco/src/**",
+					"$(PROJECT_DIR)/Aruco/3rdparty/eigen3/",
+				);
+				INFOPLIST_FILE = ArucoDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				PRODUCT_BUNDLE_IDENTIFIER = me.carlorapisarda.ArucoDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/ArucoDemo/ArucoDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2359903720DA69D900BBDDCE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F3CDC773C2167C9D11D7462 /* Pods-ArucoDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_MODULES_AUTOLINK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57W7KG4A63;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Aruco/src/**",
+					"$(PROJECT_DIR)/Aruco/3rdparty/eigen3/",
+				);
+				INFOPLIST_FILE = ArucoDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				PRODUCT_BUNDLE_IDENTIFIER = me.carlorapisarda.ArucoDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/ArucoDemo/ArucoDemo-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2359901E20DA69D800BBDDCE /* Build configuration list for PBXProject "ArucoDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2359903320DA69D900BBDDCE /* Debug */,
+				2359903420DA69D900BBDDCE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2359903520DA69D900BBDDCE /* Build configuration list for PBXNativeTarget "ArucoDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2359903620DA69D900BBDDCE /* Debug */,
+				2359903720DA69D900BBDDCE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2359901B20DA69D800BBDDCE /* Project object */;
+}
