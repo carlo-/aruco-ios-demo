@@ -54,6 +54,9 @@ CalibratorPreviewRotationType extern const CalibratorPreviewRotationTypeCw270;
 @end
 
 @protocol CalibratorDelegate
+-(void) calibratorDidStartAcquisition:(Calibrator *_Nonnull)calibrator;
+-(void) calibratorDidCancelAcquisition:(Calibrator *_Nonnull)calibrator;
+-(void) calibratorDidCompleteAcquisition:(Calibrator *_Nonnull)calibrator;
 -(void) calibrator:(Calibrator *_Nonnull)calibrator didProcessFrame:(UIImage *_Nonnull)frame;
 -(void) calibrator:(Calibrator *_Nonnull)calibrator didAcquireFrame:(UIImage *_Nonnull)frame atStep:(int)step;
 -(void) calibrator:(Calibrator *_Nonnull)calibrator didTerminateWithResult:(BOOL)result avgReprojectionError:(double)avgError rms:(double)rms;

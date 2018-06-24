@@ -98,8 +98,6 @@ static bool runCalibration(vector<vector<Point2f>> imagePoints,
     rms = calibrateCamera(objectPoints, imagePoints, imageSize, cameraMatrix,
                                  distCoeffs, rvecs, tvecs, flags|CALIB_FIX_K4|CALIB_FIX_K5);
 
-    printf("RMS error reported by calibrateCamera: %g\n", rms);
-
     bool ok = checkRange(cameraMatrix) && checkRange(distCoeffs);
     totalAvgErr = computeReprojectionErrors(objectPoints, imagePoints,
                                             rvecs, tvecs, cameraMatrix, distCoeffs, reprojErrs);
@@ -255,10 +253,10 @@ CalibratorPreviewRotationType const CalibratorPreviewRotationTypeCw270 = cv::ROT
         self.pattern = CHESSBOARD;
         self.previewRotation = CalibratorPreviewRotationTypeNone;
         self.outputFilepath = [outputFilepath UTF8String];
-        self.imagePoints = vector<vector<Point2f>>();
-        self.resetRequested = true;
+        self.resetRequested = false;
         self.startRequested = false;
         self.captureSetup = false;
+        [self resetImmediately];
     }
     return self;
 }
@@ -321,8 +319,15 @@ CalibratorPreviewRotationType const CalibratorPreviewRotationTypeCw270 = cv::ROT
 
 -(void) captureOutput:(AVCaptureOutput *)output didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
 
-    if (_resetRequested) [self resetImmediately];
-    if (_startRequested) [self startImmediately];
+    if (_resetRequested) {
+        [self resetImmediately];
+        [self.delegate calibratorDidCancelAcquisition:self];
+    }
+
+    if (_startRequested) {
+        [self startImmediately];
+        [self.delegate calibratorDidStartAcquisition:self];
+    }
 
     cv::Mat bgraImage = BufferToMat(sampleBuffer);
 
@@ -395,6 +400,8 @@ CalibratorPreviewRotationType const CalibratorPreviewRotationTypeCw270 = cv::ROT
 
     // if we have acquired enough image points, perform final steps
     if (_status == CAPTURING && _imagePoints.size() >= _numberOfFrames) {
+
+        [_delegate calibratorDidCompleteAcquisition:self];
 
         // run calibration based on the acquired image points
         double totalAvgErr = 0, rms = 0;

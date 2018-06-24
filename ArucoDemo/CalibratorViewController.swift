@@ -16,6 +16,7 @@ class CalibratorViewController: UIViewController, AVCaptureVideoDataOutputSample
     private var counterLabel: UILabel!
     private var startStopButton: UIButton!
     private var undistortButton: UIButton!
+    private var loadingIndicator: UIAlertController?
 
     private var shouldWarnUser = false
     private var captureSession: AVCaptureSession?
@@ -28,7 +29,7 @@ class CalibratorViewController: UIViewController, AVCaptureVideoDataOutputSample
         setupCalibrator()
         setupSession()
         updateCounterLabel()
-        updateActionButton(running: false)
+        updateActionButton()
     }
 
     func setupRotatedBar() {
@@ -73,8 +74,8 @@ class CalibratorViewController: UIViewController, AVCaptureVideoDataOutputSample
         captureSession?.stopRunning()
     }
 
-    func updateActionButton(running: Bool) {
-        if running {
+    func updateActionButton() {
+        if calibrator.status == .capturing {
             startStopButton.setTitle("Stop", for: .init(rawValue: 0))
         } else {
             startStopButton.setTitle("Start", for: .init(rawValue: 0))
@@ -87,13 +88,17 @@ class CalibratorViewController: UIViewController, AVCaptureVideoDataOutputSample
         counterLabel.text = "\(acquired)/\(total)"
     }
 
+    func showLoadingIndicator() {
+        loadingIndicator?.dismiss(animated: false, completion: nil)
+        loadingIndicator = UIAlertController(title: "Loading...", message: nil, preferredStyle: .alert)
+        present(loadingIndicator!, animated: true, completion: nil)
+    }
+
     @objc func toggleCalibration(_ sender: UIButton) {
         if calibrator.status == .capturing {
             calibrator.abort()
-            updateActionButton(running: false)
         } else {
             calibrator.start()
-            updateActionButton(running: true)
         }
     }
 
@@ -140,6 +145,22 @@ class CalibratorViewController: UIViewController, AVCaptureVideoDataOutputSample
 
 extension CalibratorViewController: CalibratorDelegate {
 
+    func calibratorDidStartAcquisition(_ calibrator: Calibrator) {
+        print("===> Calibration starting...")
+        DispatchQueue.main.async { [unowned self] in
+            self.updateActionButton()
+            self.updateCounterLabel()
+        }
+    }
+
+    func calibratorDidCancelAcquisition(_ calibrator: Calibrator) {
+        print("===> Calibration cancelled.")
+        DispatchQueue.main.async { [unowned self] in
+            self.updateActionButton()
+            self.updateCounterLabel()
+        }
+    }
+
     func calibrator(_ calibrator: Calibrator, didProcessFrame frame: UIImage) {
         DispatchQueue.main.async { [unowned self] in
             self.camView.image = frame
@@ -147,20 +168,38 @@ extension CalibratorViewController: CalibratorDelegate {
     }
 
     func calibrator(_ calibrator: Calibrator, didAcquireFrame frame: UIImage, atStep step: Int32) {
-        print("Step \(calibrator.acquiredFrames)/\(calibrator.numberOfFrames)")
+        print("===> Step \(calibrator.acquiredFrames)/\(calibrator.numberOfFrames)")
         DispatchQueue.main.async { [unowned self] in
             self.updateCounterLabel()
         }
     }
 
+    func calibratorDidCompleteAcquisition(_ calibrator: Calibrator) {
+        DispatchQueue.main.async { [unowned self] in
+            self.showLoadingIndicator()
+        }
+    }
+
     func calibrator(_ calibrator: Calibrator, didTerminateWithResult result: Bool, avgReprojectionError avgError: Double, rms: Double) {
+
         if result {
             print("===> Calibration completed successfully!")
+            print("===> RMS: \(rms), Avg. reprojection error: \(avgError)")
         } else {
             print("===> Calibration failed!")
         }
+
         DispatchQueue.main.async { [unowned self] in
-            self.updateActionButton(running: false)
+            self.updateActionButton()
+
+            let title = result ? "Calibration completed!" : "Calibration failed!"
+            let message = result ? "Avg. reprojection error: \(avgError)" : nil
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+
+            self.loadingIndicator?.dismiss(animated: true) {
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
 }
