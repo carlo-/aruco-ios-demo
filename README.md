@@ -1,7 +1,7 @@
 # Aruco iOS demo
 ![Platforms](https://img.shields.io/badge/platform-iOS-lightgrey.svg) ![Swift Version](https://img.shields.io/badge/swift-4.1-orange.svg) ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-Tiny iOS app integrating the [Aruco](http://www.uco.es/investiga/grupos/ava/node/26) library, including a wrapper in Objective-C++ that allows access to the APIs from Swift.
+Tiny iOS app integrating the [Aruco](http://www.uco.es/investiga/grupos/ava/node/26) library and the [OpenCV camera calibration tool](https://docs.opencv.org/2.4/doc/tutorials/calib3d/camera_calibration/camera_calibration.html), including a wrapper in Objective-C++ that allows access to the APIs from Swift.
 
 ## Setup
 

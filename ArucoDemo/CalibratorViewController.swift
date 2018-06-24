@@ -115,10 +115,10 @@ class CalibratorViewController: UIViewController, AVCaptureVideoDataOutputSample
         let calibPath = "\(docsDir)/camera_parameters.yml"
         calibrator = Calibrator(outputFile: calibPath, delegate: self)
         calibrator.pattern = .chessboard
-        calibrator.patternWidth = 8
+        calibrator.patternWidth = 9
         calibrator.patternHeight = 6
         calibrator.undistortImage = false
-        calibrator.squareSize = 0.0175
+        calibrator.squareSize = 1.8e-2
     }
 
     func setupSession() {

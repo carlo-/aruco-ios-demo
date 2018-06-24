@@ -28,7 +28,6 @@
 		2359907020DA878C00BBDDCE /* dictionary_based.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2359906D20DA878B00BBDDCE /* dictionary_based.cpp */; };
 		2359907120DA878C00BBDDCE /* svmmarkers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2359906E20DA878B00BBDDCE /* svmmarkers.cpp */; };
 		2359907720DD448800BBDDCE /* GenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359907620DD448800BBDDCE /* GenerateViewController.swift */; };
-		2359907C20DD625600BBDDCE /* example_camera_parameters.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2359907B20DD625600BBDDCE /* example_camera_parameters.yml */; };
 		2359907F20DE479200BBDDCE /* Calibrator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2359907E20DE479200BBDDCE /* Calibrator.mm */; };
 		2359908220DE50C100BBDDCE /* Utilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2359908120DE50C100BBDDCE /* Utilities.mm */; };
 		2359908420DE844E00BBDDCE /* CalibratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359908320DE844E00BBDDCE /* CalibratorViewController.swift */; };
@@ -78,7 +77,6 @@
 		2359906E20DA878B00BBDDCE /* svmmarkers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = svmmarkers.cpp; sourceTree = "<group>"; };
 		2359906F20DA878C00BBDDCE /* dictionary_based.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dictionary_based.h; sourceTree = "<group>"; };
 		2359907620DD448800BBDDCE /* GenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewController.swift; sourceTree = "<group>"; };
-		2359907B20DD625600BBDDCE /* example_camera_parameters.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example_camera_parameters.yml; sourceTree = "<group>"; };
 		2359907D20DE479200BBDDCE /* Calibrator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Calibrator.h; sourceTree = "<group>"; };
 		2359907E20DE479200BBDDCE /* Calibrator.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Calibrator.mm; sourceTree = "<group>"; };
 		2359908020DE50C100BBDDCE /* Utilities.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Utilities.h; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 		2359907A20DD5DFB00BBDDCE /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				2359907B20DD625600BBDDCE /* example_camera_parameters.yml */,
 				2359903A20DA6A5000BBDDCE /* ArucoDemo-Bridging-Header.h */,
 				2359902D20DA69D900BBDDCE /* Assets.xcassets */,
 				2359902F20DA69D900BBDDCE /* LaunchScreen.storyboard */,
@@ -284,7 +281,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2359907C20DD625600BBDDCE /* example_camera_parameters.yml in Resources */,
 				2359903120DA69D900BBDDCE /* LaunchScreen.storyboard in Resources */,
 				2359902E20DA69D900BBDDCE /* Assets.xcassets in Resources */,
 				2359902C20DA69D800BBDDCE /* Main.storyboard in Resources */,
