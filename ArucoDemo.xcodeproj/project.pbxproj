@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230DFD1820E01284004AD74A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230DFD1720E01284004AD74A /* Utilities.swift */; };
 		2359902720DA69D800BBDDCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359902620DA69D800BBDDCE /* AppDelegate.swift */; };
 		2359902920DA69D800BBDDCE /* TrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359902820DA69D800BBDDCE /* TrackViewController.swift */; };
 		2359902C20DA69D800BBDDCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2359902A20DA69D800BBDDCE /* Main.storyboard */; };
@@ -28,10 +29,14 @@
 		2359907120DA878C00BBDDCE /* svmmarkers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2359906E20DA878B00BBDDCE /* svmmarkers.cpp */; };
 		2359907720DD448800BBDDCE /* GenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359907620DD448800BBDDCE /* GenerateViewController.swift */; };
 		2359907C20DD625600BBDDCE /* example_camera_parameters.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2359907B20DD625600BBDDCE /* example_camera_parameters.yml */; };
+		2359907F20DE479200BBDDCE /* Calibrator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2359907E20DE479200BBDDCE /* Calibrator.mm */; };
+		2359908220DE50C100BBDDCE /* Utilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2359908120DE50C100BBDDCE /* Utilities.mm */; };
+		2359908420DE844E00BBDDCE /* CalibratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359908320DE844E00BBDDCE /* CalibratorViewController.swift */; };
 		97F573A2D9DCF2BF7BEA8071 /* Pods_ArucoDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30D1C0C5F01FEC9B5AF3E438 /* Pods_ArucoDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		230DFD1720E01284004AD74A /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		2359902320DA69D800BBDDCE /* ArucoDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArucoDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2359902620DA69D800BBDDCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2359902820DA69D800BBDDCE /* TrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewController.swift; sourceTree = "<group>"; };
@@ -39,7 +44,7 @@
 		2359902D20DA69D900BBDDCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2359903020DA69D900BBDDCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2359903220DA69D900BBDDCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2359903A20DA6A5000BBDDCE /* ArucoDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ArucoDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		2359903A20DA6A5000BBDDCE /* ArucoDemo-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = "ArucoDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		2359903B20DA6A5000BBDDCE /* ArucoWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArucoWrapper.h; sourceTree = "<group>"; };
 		2359903C20DA6A5000BBDDCE /* ArucoWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ArucoWrapper.mm; sourceTree = "<group>"; };
 		2359904220DA6C4F00BBDDCE /* cameraparameters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cameraparameters.cpp; sourceTree = "<group>"; };
@@ -74,6 +79,11 @@
 		2359906F20DA878C00BBDDCE /* dictionary_based.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dictionary_based.h; sourceTree = "<group>"; };
 		2359907620DD448800BBDDCE /* GenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewController.swift; sourceTree = "<group>"; };
 		2359907B20DD625600BBDDCE /* example_camera_parameters.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example_camera_parameters.yml; sourceTree = "<group>"; };
+		2359907D20DE479200BBDDCE /* Calibrator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Calibrator.h; sourceTree = "<group>"; };
+		2359907E20DE479200BBDDCE /* Calibrator.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Calibrator.mm; sourceTree = "<group>"; };
+		2359908020DE50C100BBDDCE /* Utilities.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Utilities.h; sourceTree = "<group>"; };
+		2359908120DE50C100BBDDCE /* Utilities.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Utilities.mm; sourceTree = "<group>"; };
+		2359908320DE844E00BBDDCE /* CalibratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibratorViewController.swift; sourceTree = "<group>"; };
 		2F3CDC773C2167C9D11D7462 /* Pods-ArucoDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArucoDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArucoDemo/Pods-ArucoDemo.release.xcconfig"; sourceTree = "<group>"; };
 		30D1C0C5F01FEC9B5AF3E438 /* Pods_ArucoDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArucoDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F121A706D926BB501C0408B6 /* Pods-ArucoDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArucoDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArucoDemo/Pods-ArucoDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +127,8 @@
 				2359902620DA69D800BBDDCE /* AppDelegate.swift */,
 				2359902820DA69D800BBDDCE /* TrackViewController.swift */,
 				2359907620DD448800BBDDCE /* GenerateViewController.swift */,
+				2359908320DE844E00BBDDCE /* CalibratorViewController.swift */,
+				230DFD1720E01284004AD74A /* Utilities.swift */,
 				2359902A20DA69D800BBDDCE /* Main.storyboard */,
 				2359907A20DD5DFB00BBDDCE /* Misc */,
 			);
@@ -138,6 +150,10 @@
 				2359903E20DA6B0700BBDDCE /* src */,
 				2359903B20DA6A5000BBDDCE /* ArucoWrapper.h */,
 				2359903C20DA6A5000BBDDCE /* ArucoWrapper.mm */,
+				2359907D20DE479200BBDDCE /* Calibrator.h */,
+				2359907E20DE479200BBDDCE /* Calibrator.mm */,
+				2359908020DE50C100BBDDCE /* Utilities.h */,
+				2359908120DE50C100BBDDCE /* Utilities.mm */,
 			);
 			path = Aruco;
 			sourceTree = "<group>";
@@ -327,15 +343,19 @@
 				2359906520DA6C5200BBDDCE /* markerdetector.cpp in Sources */,
 				2359907020DA878C00BBDDCE /* dictionary_based.cpp in Sources */,
 				2359905C20DA6C5200BBDDCE /* cameraparameters.cpp in Sources */,
+				2359908420DE844E00BBDDCE /* CalibratorViewController.swift in Sources */,
 				2359906020DA6C5200BBDDCE /* posetracker.cpp in Sources */,
+				2359907F20DE479200BBDDCE /* Calibrator.mm in Sources */,
 				2359902920DA69D800BBDDCE /* TrackViewController.swift in Sources */,
 				2359906620DA6C5200BBDDCE /* ippe.cpp in Sources */,
 				2359906220DA6C5200BBDDCE /* markermap.cpp in Sources */,
 				2359907120DA878C00BBDDCE /* svmmarkers.cpp in Sources */,
+				2359908220DE50C100BBDDCE /* Utilities.mm in Sources */,
 				2359906320DA6C5200BBDDCE /* dictionary.cpp in Sources */,
 				2359902720DA69D800BBDDCE /* AppDelegate.swift in Sources */,
 				2359905F20DA6C5200BBDDCE /* cvdrawingutils.cpp in Sources */,
 				2359906120DA6C5200BBDDCE /* marker.cpp in Sources */,
+				230DFD1820E01284004AD74A /* Utilities.swift in Sources */,
 				2359906420DA6C5200BBDDCE /* markerlabeler.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

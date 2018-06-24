@@ -12,22 +12,30 @@ import AVFoundation
 class TrackViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     @IBOutlet private weak var camView: UIImageView!
+    @IBOutlet private weak var rotatedBar: RotatedBar!
 
-    private var shouldWarnUser = false
+    private var trackerSetup = false
     private var captureSession: AVCaptureSession?
     private var device: AVCaptureDevice?
-    private var arucoTracker: ArucoTracker!
+    private var arucoTracker: ArucoTracker?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTracker()
-        prepareSession()
+        setupRotatedBar()
+    }
+
+    func setupRotatedBar() {
+        let thisTextDown = UILabel(frame: .zero)
+        thisTextDown.translatesAutoresizingMaskIntoConstraints = false
+        thisTextDown.text = "This text down"
+        thisTextDown.sizeToFit()
+        rotatedBar.setup(with: [thisTextDown], insets: (dx: 0, dy: 10))
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        setupTrackerIfNeeded()
         captureSession?.startRunning()
-        if shouldWarnUser { warnUserAboutCalibration() }
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -35,18 +43,26 @@ class TrackViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffe
         captureSession?.stopRunning()
     }
 
-    func setupTracker() {
+    func setupTrackerIfNeeded() {
+
+        if trackerSetup {return}
+
         let docsDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].path
         let calibPath = "\(docsDir)/camera_parameters.yml"
+
         if !FileManager.default.fileExists(atPath: calibPath) {
-            let exCalibPath = Bundle.main.path(forResource: "example_camera_parameters", ofType: "yml")!
-            try? FileManager.default.copyItem(atPath: exCalibPath, toPath: calibPath)
-            shouldWarnUser = true
+            warnUser()
+        } else {
+            arucoTracker = ArucoTracker(calibrationFile: calibPath, delegate: self)
+            setupSession()
+            trackerSetup = true
         }
-        arucoTracker = ArucoTracker(calibrationFile: calibPath, delegate: self)
     }
 
-    func prepareSession() {
+    func setupSession() {
+
+        guard let tracker = arucoTracker
+            else { fatalError("prepareSession() must be called after initializing the tracker") }
 
         device = AVCaptureDevice.default(for: .video)
         guard device != nil, let videoInput = try? AVCaptureDeviceInput(device: device!)
@@ -63,18 +79,19 @@ class TrackViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffe
         captureSession?.addInput(videoInput)
         captureSession?.addOutput(videoOutput)
 
-        arucoTracker.prepare(for: videoOutput)
+        tracker.previewRotation = .cw90
+        tracker.prepare(for: videoOutput, orientation: .landscapeRight)
     }
 
-    func warnUserAboutCalibration() {
+    func warnUser() {
         let alert = UIAlertController(
             title: "Warning",
-            message: "Camera calibration file (camera_parameters.yml) not found in Documents folder; this is necessary for accurate pose detection. An example calibration file will be copied and used temporarely. This message will not appear again.",
+            message: "Camera calibration file (camera_parameters.yml) not found in Documents folder; this is necessary for accurate pose detection.",
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+        // alert.addAction(UIAlertAction(title: "Calibrate", style: .default, handler: showCalibrator))
+        alert.addAction(UIAlertAction(title: "Ignore", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
-        shouldWarnUser = false
     }
 }
 
