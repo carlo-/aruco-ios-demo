@@ -83,13 +83,18 @@ class TrackViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffe
         tracker.prepare(for: videoOutput, orientation: .landscapeRight)
     }
 
+    func showCalibrator(_ sender: Any) {
+        let vcIndex = tabBarController?.viewControllers?.index { $0 is CalibratorViewController }
+        tabBarController?.selectedIndex = Int(vcIndex!)
+    }
+
     func warnUser() {
         let alert = UIAlertController(
             title: "Warning",
             message: "Camera calibration file (camera_parameters.yml) not found in Documents folder; this is necessary for accurate pose detection.",
             preferredStyle: .alert
         )
-        // alert.addAction(UIAlertAction(title: "Calibrate", style: .default, handler: showCalibrator))
+        alert.addAction(UIAlertAction(title: "Calibrate", style: .default, handler: showCalibrator))
         alert.addAction(UIAlertAction(title: "Ignore", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
