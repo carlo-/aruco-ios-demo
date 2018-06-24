@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
+
+typedef int ArucoPreviewRotationType NS_TYPED_ENUM;
+ArucoPreviewRotationType extern const ArucoPreviewRotationTypeNone;
+ArucoPreviewRotationType extern const ArucoPreviewRotationTypeCw90;
+ArucoPreviewRotationType extern const ArucoPreviewRotationTypeCw180;
+ArucoPreviewRotationType extern const ArucoPreviewRotationTypeCw270;
+
+
 @interface ArucoGenerator: NSObject
 @property BOOL enclosingCorners;
 @property BOOL waterMark;
@@ -39,9 +47,10 @@
 @interface ArucoTracker: NSObject <AVCaptureVideoDataOutputSampleBufferDelegate>
 @property BOOL outputImages;
 @property float markerSize;
+@property ArucoPreviewRotationType previewRotation;
 @property (weak) _Nullable id<ArucoTrackerDelegate> delegate;
 -(void) readCalibration:(NSString *_Nonnull)filepath;
--(void) prepareForOutput:(AVCaptureVideoDataOutput *_Nonnull)videoOutput;
+-(void) prepareForOutput:(AVCaptureVideoDataOutput *_Nonnull)videoOutput orientation:(AVCaptureVideoOrientation)orientation;
 -(id _Nonnull) initWithCalibrationFile:(NSString *_Nonnull)calibrationFilepath delegate:(_Nonnull id<ArucoTrackerDelegate>)delegate;
 @end
 

@@ -7,17 +7,20 @@
 //
 
 #import "ArucoWrapper.h"
+#import "Utilities.h"
+
 #import <opencv2/imgproc/imgproc.hpp>
 #import <opencv2/imgcodecs/ios.h>
 #import <opencv2/core/core.hpp>
 #import <aruco.h>
 
 
-#pragma mark - Forward declarations
+#pragma mark - Constants
 
-cv::Mat BufferToMat(CMSampleBufferRef buffer);
-cv::Mat BufferToMatSlow(CMSampleBufferRef buffer, CIContext *context);
-std::string NSStringToStdString(NSString *nsString);
+ArucoPreviewRotationType const ArucoPreviewRotationTypeNone = -1;
+ArucoPreviewRotationType const ArucoPreviewRotationTypeCw90 = cv::ROTATE_90_CLOCKWISE;
+ArucoPreviewRotationType const ArucoPreviewRotationTypeCw180 = cv::ROTATE_180;
+ArucoPreviewRotationType const ArucoPreviewRotationTypeCw270 = cv::ROTATE_90_COUNTERCLOCKWISE;
 
 
 #pragma mark - ArucoMarker
@@ -63,6 +66,7 @@ std::string NSStringToStdString(NSString *nsString);
         self.camParams = new aruco::CameraParameters();
         self.markerSize = 0.04;
         self.outputImages = true;
+        self.previewRotation = -1;
         self.ciContext = [[CIContext alloc] init];
         self.setupDone = false;
         self.delegate = delegate;
@@ -72,10 +76,10 @@ std::string NSStringToStdString(NSString *nsString);
 }
 
 -(void) readCalibration:(NSString *)filepath {
-    self.camParams->readFromXMLFile(NSStringToStdString(filepath));
+    self.camParams->readFromXMLFile([filepath UTF8String]);
 }
 
--(void) prepareForOutput:(AVCaptureVideoDataOutput *)videoOutput {
+-(void) prepareForOutput:(AVCaptureVideoDataOutput *)videoOutput orientation:(AVCaptureVideoOrientation)orientation {
 
     dispatch_queue_t queue = dispatch_queue_create("video-sample-buffer", nil);
     [videoOutput setSampleBufferDelegate:self queue:queue];
@@ -88,7 +92,7 @@ std::string NSStringToStdString(NSString *nsString);
     AVCaptureConnection *conn = [videoOutput connectionWithMediaType:AVMediaTypeVideo];
 
     if (conn.isVideoMirroringSupported && conn.isVideoOrientationSupported) {
-        [conn setVideoOrientation:AVCaptureVideoOrientationPortrait];
+        [conn setVideoOrientation:orientation];
     } else {
         [NSException raise:@"DeviceNotSupported" format:@"Device does not support one or more required features"];
     }
@@ -133,6 +137,10 @@ std::string NSStringToStdString(NSString *nsString);
             }
         }
 
+        if (_previewRotation >= 0) {
+            cv::rotate(colorImage, colorImage, _previewRotation);
+        }
+
         preview = MatToUIImage(colorImage);
     }
 
@@ -153,7 +161,7 @@ std::string NSStringToStdString(NSString *nsString);
 
 -(id _Nonnull) initWithDictionary:(NSString *_Nonnull)dictionaryName {
     if (self = [super init]) {
-        self.dictionaryName = NSStringToStdString(dictionaryName);
+        self.dictionaryName = [dictionaryName UTF8String];
         self.dictionary = aruco::Dictionary::load(self.dictionaryName);
         self.enclosingCorners = false;
         self.waterMark = true;
@@ -223,45 +231,3 @@ std::string NSStringToStdString(NSString *nsString);
 }
 
 @end
-
-
-#pragma mark - Utilities
-
-cv::Mat BufferToMatSlow(CMSampleBufferRef buffer, CIContext *context) {
-
-    CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(buffer);
-    CIImage *ciImage = [[CIImage alloc] initWithCVImageBuffer:imageBuffer];
-
-    CGImage *cgImage = [context createCGImage:ciImage fromRect:ciImage.extent];
-    UIImage *uiImage = [[UIImage alloc] initWithCGImage:cgImage];
-    CGImageRelease(cgImage);
-
-    cv::Mat mat;
-    UIImageToMat(uiImage, mat);
-    return mat;
-}
-
-cv::Mat BufferToMat(CMSampleBufferRef buffer) {
-
-    // begin processing
-    CVImageBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(buffer);
-    CVPixelBufferLockBaseAddress(pixelBuffer, kCVPixelBufferLock_ReadOnly);
-
-    int bufferWidth = (int)CVPixelBufferGetWidth(pixelBuffer);
-    int bufferHeight = (int)CVPixelBufferGetHeight(pixelBuffer);
-    int bytesPerRow = (int)CVPixelBufferGetBytesPerRow(pixelBuffer);
-    unsigned char *pixel = (unsigned char *)CVPixelBufferGetBaseAddress(pixelBuffer);
-
-    // put buffer in open cv, no memory copied
-    cv::Mat mat(bufferHeight, bufferWidth, CV_8UC4, pixel, bytesPerRow);
-
-    // end processing
-    CVPixelBufferUnlockBaseAddress(pixelBuffer, kCVPixelBufferLock_ReadOnly);
-
-    return mat;
-}
-
-std::string NSStringToStdString(NSString *nsString) {
-    std::string stdString([nsString UTF8String]);
-    return stdString;
-}
