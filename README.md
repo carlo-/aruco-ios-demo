@@ -4,7 +4,7 @@
 Tiny iOS app integrating the [Aruco](http://www.uco.es/investiga/grupos/ava/node/26) library and the [OpenCV camera calibration tool](https://docs.opencv.org/2.4/doc/tutorials/calib3d/camera_calibration/camera_calibration.html), including a wrapper in Objective-C++ that allows access to the APIs from Swift.
 
 <p align="center">
-  <img alt="App screenshot" src="http://public-carlorapisarda.s3.wasabisys.com/aruco-ios-demo-screenshot.png" width="auto" height="350">
+  <img alt="App screenshot" src="http://public-carlorapisarda.s3.wasabisys.com/aruco-ios-demo-screenshot.png" width="auto" height="410">
 </p>
 
 ---
