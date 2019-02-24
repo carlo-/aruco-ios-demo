@@ -38,6 +38,8 @@ If everything went well, your project should now look like this (omitting less r
 └── Pods/
 ```
 
+You might also need to comment out parts of the Aruco library that involve windows, as these are not needed for the app and will cause errors when compiling. See also [this](https://github.com/carlo-/aruco-ios-demo/issues/4) issue.
+
 ## Requirements
 
 * Xcode 9.0
