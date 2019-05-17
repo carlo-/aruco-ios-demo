@@ -12,7 +12,7 @@ Tiny iOS app integrating the [Aruco](http://www.uco.es/investiga/grupos/ava/node
 
 In order to setup the project, follow these steps:
 
-* Download the Aruco library (v3.0.X) from [here](https://sourceforge.net/projects/aruco/files/?source=navbar).
+* Download the Aruco library (v3.0.X) from [this mirror](https://github.com/fnoop/aruco/tree/088a511f69d4df3c9518ebe1ce90a2590be8b4c8) (as the [official repo](https://sourceforge.net/projects/aruco/files/?source=navbar) doesn't keep this version any longer; see [#5](https://github.com/carlo-/aruco-ios-demo/issues/5))
 * Copy the folders `src` and `3rdparty` into the `Aruco` folder of the project.
 * From the project root, run `chmod -R 755 ./Aruco/3rdparty/eigen3/Eigen`.
 * Download OpenCV 3.4.X (iOS pack) from [here](https://opencv.org/releases.html).
